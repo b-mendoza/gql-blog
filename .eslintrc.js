@@ -4,30 +4,28 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
   extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended',
-    'plugin:@next/next/recommended',
+    'next',
+    'next/core-web-vitals',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'prettier',
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
+    project: ['./tsconfig.json', './tsconfig.eslint.json'],
     sourceType: 'module',
+    tsconfigRootDir: __dirname,
   },
-  plugins: ['react', 'react-hooks'],
-  rules: {
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
-    'react/prop-types': 'off',
-    'react/react-in-jsx-scope': 'off',
-    '@next/next/no-img-element': 'off',
+  plugins: ['@typescript-eslint'],
+  root: true,
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 };
